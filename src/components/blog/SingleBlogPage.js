@@ -7,7 +7,7 @@ import CommentForm from "./CommentForm";
 import BlogCardHeader from "../shared/BlogCardHeader";
 //REDUX
 import { useDispatch, useSelector } from "react-redux";
-import { addToArchive, removeFromArchive } from "../../redux/archive/archiveAction";
+import { add, remove } from "../../features/bookmarks/bookmarksSlice";
 //MUI
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -29,7 +29,7 @@ import archiveChecker from "../../functions/archiveChecker";
 const SingleBlogPage = () => {
    const screenWidth = useContext(screenWidthContext);
    const allBlogs = useContext(allPostsContext);
-   const state = useSelector(state => state.savedArticles)
+   const state = useSelector(state => state.bookmarks.bookmarkedItems)
    const dispatch = useDispatch()
    const { slug } = useParams();
    const [relatedPosts, setRelatedPosts] = useState([]);
@@ -286,7 +286,7 @@ const SingleBlogPage = () => {
                                           <Button
                                              variant='outlined'
                                              className='flex items-center justify-center gap-1 px-3 py-0 mb-1 mt-1 text-black rounded-2xl'
-                                             onClick={archiveChecker(state,post.slug) ? () => dispatch(removeFromArchive(post)) : () => dispatch(addToArchive(post))}
+                                             onClick={archiveChecker(state,post.slug) ? () => dispatch(remove(post)) : () => dispatch(add(post))}
                                           >
                                              {archiveChecker(state, post.slug)
                                                 ? "Unbookmark"

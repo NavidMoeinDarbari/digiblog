@@ -2,10 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
-import {
-   addToArchive,
-   removeFromArchive,
-} from "../../redux/archive/archiveAction";
+import { add, remove } from "../../features/bookmarks/bookmarksSlice";
 //MUI
 import BookmarkAddRoundedIcon from "@mui/icons-material/BookmarkAddRounded";
 import BookmarkAddedRoundedIcon from "@mui/icons-material/BookmarkAddedRounded";
@@ -39,7 +36,7 @@ const BlogCard = ({
    content,
 }) => {
    const screenWidth = useContext(screenWidthContext);
-   const state = useSelector((state) => state.savedArticles);
+   const state = useSelector((state) => state.bookmarks.bookmarkedItems);
    const dispatch = useDispatch();
 
    return (
@@ -166,8 +163,8 @@ const BlogCard = ({
                   className='flex items-center justify-center gap-1 px-3 py-px mt-0.5 text-black rounded-2xl'
                   onClick={
                      archiveChecker(state, slug)
-                        ? () => dispatch(removeFromArchive(post))
-                        : () => dispatch(addToArchive(post))
+                        ? () => dispatch(remove(post))
+                        : () => dispatch(add(post))
                   }
                >
                   {archiveChecker(state, slug) ? "Unbookmark" : "Bookmark"}

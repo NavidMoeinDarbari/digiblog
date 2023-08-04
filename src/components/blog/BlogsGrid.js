@@ -3,11 +3,8 @@ import BlogCard from "../shared/BlogCard";
 //REDUX
 import { useSelector } from "react-redux";
 //MUI
-import { Box, Divider, Grid, Pagination, Tab, TabScrollButton, Tabs, Typography } from "@mui/material";
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
-import FitnessCenterRoundedIcon from '@mui/icons-material/FitnessCenterRounded';
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
+import { Box, Divider, Grid, Pagination, Tab, Tabs, Typography } from "@mui/material";
+
 //GRAPHQL
 import { useQuery } from "@apollo/client";
 import { GET_BLOGS_INFO } from "../../graphQL/queries";
@@ -18,7 +15,7 @@ import { screenWidthContext } from "../../App";
 const BlogsGrid = () => {
    const { data } = useQuery(GET_BLOGS_INFO);
    const screenWidth = useContext(screenWidthContext)
-   const savedArticles = useSelector(state => state.savedArticles)
+   const bookmarkedItems = useSelector(state => state.bookmarks.bookmarkedItems)
    const carrousel = useRef(null);
 
    const [totalPages, setTotalPages] = useState(1);
@@ -38,7 +35,7 @@ const BlogsGrid = () => {
       }
    });
 
-   if(category === 'Bookmarks') filterData = savedArticles
+   if(category === 'Bookmarks') filterData = bookmarkedItems
 
    useEffect(() => {
       if (data)
@@ -122,7 +119,7 @@ const BlogsGrid = () => {
             <Grid
                container
                ref={carrousel}
-               className='touch-none pointer-events-auto w-full h-full pt-5 lg:pt-6 relative overflow-x-scroll no-scrollbar grid grid-flow-col auto-rows-auto gap-y-3 grid-cols-100% auto-cols-100% grid-rows-3 lg:grid-cols-50% lg:auto-cols-50% lg:grid-rows-2 lg:gap-y-5'
+               className='touch-pan-y pointer-events-auto w-full h-full pt-5 lg:pt-6 relative overflow-x-scroll no-scrollbar grid grid-flow-col auto-rows-auto gap-y-3 grid-cols-100% auto-cols-100% grid-rows-3 lg:grid-cols-50% lg:auto-cols-50% lg:grid-rows-2 lg:gap-y-5'
             >
                {data && 
                   filterData.map((post, index) => (

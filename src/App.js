@@ -10,7 +10,7 @@ import { useQuery } from '@apollo/client';
 import { GET_BLOGS_INFO } from './graphQL/queries';
 //REDUX
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import store from './app/store';
 
 
 export const allPostsContext = React.createContext()
