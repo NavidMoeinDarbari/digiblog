@@ -1,0 +1,19 @@
+p {
+   margin-bottom: 12px;
+}
+h3 {
+   margin-top: 20px;
+   font-size: 1.2rem;
+   margin-bottom: 10px;
+}
+
+@media (min-width: 1024px) {
+   h3{
+      font-size: 1.35rem;
+   }
+}
+@media (min-width: 768px) {
+   h3{
+      font-size: 1.3rem;
+   }
+}
