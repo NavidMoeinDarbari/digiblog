@@ -87,27 +87,29 @@ const BlogsGrid = () => {
                allowScrollButtonsMobile
                sx={{'.MuiTabs-scrollButtons.Mui-disabled': {
                   opacity: 0.4
-               }}}
+               },
+               alignItems: 'center'
+               }}
             >
                <Tab
                   value='all'
                   label='All Posts'
-                  className='px-1 text-0.9rem sm:text-base 550:px-3'
+                  className='px-1 text-0.95rem sm:text-base 550:px-3'
                />
                <Tab
                   value='Technology'
                   label='Technology'
-                  className='px-1 text-0.9rem sm:text-base 550:px-3'
+                  className='px-1 text-0.95rem sm:text-base 550:px-3'
                />
                <Tab
                   value='Health'
                   label='Health'
-                  className='px-1 text-0.9rem sm:text-base 550:px-3'
+                  className='px-1 text-0.95rem sm:text-base 550:px-3'
                />
                <Tab
                   value='Lifestyle'
                   label='Lifestyle'
-                  className='px-1 text-0.9rem sm:text-base 550:px-3'
+                  className='px-1 text-0.95rem sm:text-base 550:px-3'
                />
                 <Tab
                   value='Bookmarks'
@@ -119,7 +121,7 @@ const BlogsGrid = () => {
             <Grid
                container
                ref={carrousel}
-               className='touch-pan-y pointer-events-auto w-full h-full pt-5 lg:pt-6 relative overflow-x-scroll no-scrollbar grid grid-flow-col auto-rows-auto gap-y-3 grid-cols-100% auto-cols-100% grid-rows-3 lg:grid-cols-50% lg:auto-cols-50% lg:grid-rows-2 lg:gap-y-5'
+               className='touch-pan-y pointer-events-auto w-full h-full pt-4 lg:pt-6 relative overflow-x-scroll no-scrollbar grid grid-flow-col auto-rows-auto gap-y-3 grid-cols-100% auto-cols-100% grid-rows-3 lg:grid-cols-50% lg:auto-cols-50% lg:grid-rows-2 lg:gap-y-5'
             >
                {data && 
                   filterData.map((post, index) => (

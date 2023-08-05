@@ -90,7 +90,7 @@ const SingleBlogPage = () => {
             >
                Date: {data.post.datePublished}
             </Typography>
-            <div className='h-300 sm:h-350 md:h-450 relative shadow-bannerShadow flex flex-col items-center justify-center w-full overflow-hidden rounded-2xl'>
+            <div className='h-350 md:h-450 relative shadow-bannerShadow flex flex-col items-center justify-center w-full overflow-hidden rounded-xl lg:rounded-2xl'>
                {loading ? (
                   <Loader />
                ) : (
@@ -100,14 +100,14 @@ const SingleBlogPage = () => {
                         className='object-cover w-full h-full'
                         alt={data.post.slug}
                      />
-                     <div className='absolute bottom-0 left-0 flex flex-col items-start justify-between w-full h-auto px-3 py-4 450:py-5 md:py-6 text-white bg-gradient-to-t from-black/80 from-0 to-transparent'>
+                     <div className='absolute bottom-0 left-0 flex flex-col items-start justify-between w-full h-auto px-3 py-3.5 450:py-5 md:py-6 text-white bg-gradient-to-t from-black/80 from-0 to-transparent'>
                         <div className='w-full h-16 flex flex-row justify-between items-center'>
                            <CardHeader
                               className='hidden 600:flex'
                               avatar={
                                  <Avatar
                                     src={data.post.author.avatar.url}
-                                    className='m-0 md:mb-1'
+                                    className='m-0 md:mb-1 border-0.5 border-solid border-sky-100'
                                  />
                               }
                               title={
@@ -134,7 +134,7 @@ const SingleBlogPage = () => {
                            />
                         </div>
                         <Typography
-                           className='text-xl leading-tight 600:text-1.4rem sm:text-1.5rem md:text-1.7rem lg:text-1.8rem px-2 sm:px-3 md:px-4'
+                           className='text-xl leading-6 600:leading-7 600:text-1.4rem sm:text-1.5rem md:text-1.7rem md:leading-9 px-1.5 sm:px-3 md:px-4 lg:w-4/5'
                            letterSpacing={"-.8px"}
                            component='h2'
                            variant='h2'
@@ -152,14 +152,12 @@ const SingleBlogPage = () => {
                   className='w-full md:w-2/3 mt-0 600:mt-6'
                   display={"flex"}
                   flexDirection={"column"}
-                  justifyContent={"space-between"}
+                  justifyContent={"space-start"}
                >
                   <Typography
                      color='black'
                      fontWeight={400}
-                     className='text-base sm:text-1.07rem'
-                     lineHeight={"25px"}
-                     mb={0}
+                     className='text-base leading-23 sm:text-1.05rem'
                      dangerouslySetInnerHTML={{
                         __html: data.post.content.html,
                      }}
@@ -223,16 +221,15 @@ const SingleBlogPage = () => {
                                     className='flex w-full sm:w-95% flex-col justify-between rounded-t-xl h-265 md:h-275 overflow-hidden'
                                  >
                                     <div className='relative w-full p-0 h-60% min-h-170 350:min-h-175 500:min-h-165 lg:h-2/3 shadow-blogCard rounded-md overflow-hidden'>
-                                       {
-                                          archiveChecker(state, post.slug) ? 
-                                          <span className='absolute animate-bookmarkIconShow left-3 top-3 shadow-arrowButton flex justify-center items-center text-black bg-sky-100 p-0 w-7 h-7 rounded-full'>
-                                             <BookmarkAddedRoundedIcon className='text-xl'/>
-                                          </span> 
-                                          :
-                                          <span className='hidden absolute animate-bookmarkIconHide shadow-arrowButton top-3 justify-center items-center text-black bg-sky-100 p-0 w-7 h-7 rounded-full'>
-                                             <BookmarkAddedRoundedIcon className='text-xl'/>
-                                          </span> 
-                                       }
+                                       {archiveChecker(state, post.slug) ? (
+                                          <span className='absolute animate-bookmarkIconShow left-0 top-4 shadow-arrowButton flex justify-center items-center text-black bg-sky-200 p-0 w-14 h-7 rounded-r-full'>
+                                             <BookmarkAddedRoundedIcon className='text-xl' />
+                                          </span>
+                                          ) : (
+                                          <span className='hidden absolute animate-bookmarkIconHide shadow-arrowButton top-4 justify-center items-center text-black bg-sky-200 p-0 w-14 h-7 rounded-r-full'>
+                                             <BookmarkAddedRoundedIcon className='text-xl' />
+                                          </span>
+                                       )}
                                        <CardMedia
                                           className='object-cover'
                                           component='img'
@@ -277,7 +274,7 @@ const SingleBlogPage = () => {
                                           >
                                              <Button
                                                 variant='outlined'
-                                                className='flex items-center justify-center gap-1 px-3 py-0 mb-1 mt-1 text-black rounded-2xl'
+                                                className='flex items-center bg-sky-100 justify-center gap-1 px-2.5 py-0 mb-1 mt-0.5 text-black rounded-2xl'
                                              >
                                                 Read Post
                                                 <NorthEastIcon className='text-base' />
@@ -285,7 +282,7 @@ const SingleBlogPage = () => {
                                           </Link>
                                           <Button
                                              variant='outlined'
-                                             className='flex items-center justify-center gap-1 px-3 py-0 mb-1 mt-1 text-black rounded-2xl'
+                                             className='flex items-center justify-center gap-1 px-2.5 py-0 mb-1 mt-0.5 text-black rounded-2xl'
                                              onClick={archiveChecker(state,post.slug) ? () => dispatch(remove(post)) : () => dispatch(add(post))}
                                           >
                                              {archiveChecker(state, post.slug)

@@ -67,7 +67,7 @@ const SingleAuthorPage = () => {
                <Loader />
             ) : (
                <>
-                  <div className='w-full shadow-bannerShadow flex flex-col h-300 sm:h-350 md:h-450 overflow-hidden rounded-2xl relative'>
+                  <div className='w-full shadow-bannerShadow flex flex-col h-350 md:h-450 overflow-hidden rounded-2xl relative'>
                      <img
                         src={data.author.avatar.url}
                         className='w-full h-full object-cover'
@@ -159,7 +159,9 @@ const SingleAuthorPage = () => {
                               )}
                            </Stack>
                         )}
-                        <Divider className='mt-1.5 h-0.5 bg-sky-100'/>
+                        {data.author.posts.length > 0 && (
+                           <Divider className='mt-1.5 h-0.5 bg-sky-100' />
+                        )}
                         <div
                            ref={carrousel}
                            className={

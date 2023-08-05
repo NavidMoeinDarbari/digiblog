@@ -41,16 +41,16 @@ const BlogCard = ({
 
    return (
       <Card
-         className='w-full sm:w-95% h-350 sm:h-400 rounded-xl lg:rounded-2xl overflow-hidden'
+         className='w-full 730:w-95% h-360 sm:h-400 rounded-xl lg:rounded-2xl overflow-hidden'
          elevation={0}
       >
-         <div className='w-full h-55% shadow-blogCard rounded-md 450:h-60% p-0 relative overflow-hidden'>
+         <div className='w-full h-57% rounded-md 450:h-60% p-0 relative overflow-hidden'>
             {archiveChecker(state, slug) ? (
-               <span className='absolute animate-bookmarkIconShow left-3 top-3 shadow-arrowButton flex justify-center items-center text-black bg-sky-100 p-0 w-7 h-7 rounded-full'>
+               <span className='absolute animate-bookmarkIconShow left-0 top-4 shadow-arrowButton flex justify-center items-center text-black bg-sky-200 p-0 w-14 h-7 rounded-r-full'>
                   <BookmarkAddedRoundedIcon className='text-xl' />
                </span>
             ) : (
-               <span className='hidden absolute animate-bookmarkIconHide shadow-arrowButton top-3 justify-center items-center text-black bg-sky-100 p-0 w-7 h-7 rounded-full'>
+               <span className='hidden absolute animate-bookmarkIconHide shadow-arrowButton top-4 justify-center items-center text-black bg-sky-200 p-0 w-14 h-7 rounded-r-full'>
                   <BookmarkAddedRoundedIcon className='text-xl' />
                </span>
             )}
@@ -62,15 +62,15 @@ const BlogCard = ({
             />
             <div
                className={
-                  "w-full h-auto overflow-hidden rounded-b-md backdrop-blur border-solid border-0 border-t-0.5 border-white/50 px-1 bg-black bg-opacity-15 text-white flex justify-between items-center absolute bottom-0 left-0"
+                  "w-full h-auto overflow-hidden rounded-b-md backdrop-blur border-solid border-0 border-t-0.5 border-white/50 px-1 bg-white bg-opacity-15 text-white flex justify-between items-center absolute bottom-0 left-0"
                }
             >
                <CardHeader
-                  className='p-3 sm:p-4'
+                  className='p-2.5 sm:p-3.5'
                   avatar={
                      author && screenWidth > 400 ? (
                         <Avatar
-                           className='scale-100 lg:scale-105 shadow-md shadow-black/70'
+                           className='border-solid border-0.5 border-sky-100 scale-100 lg:scale-105'
                            src={author.avatar.url}
                         />
                      ) : (
@@ -80,11 +80,10 @@ const BlogCard = ({
                   title={
                      author && (
                         <Typography
-                           className='text-sm 450:text-0.9rem'
+                           className='text-sm 450:text-0.9rem tracking-tighter font-medium pb-px'
                            component='p'
                            variant='p'
                            color={"white"}
-                           gutterBottom
                         >
                            {author.name}
                         </Typography>
@@ -113,13 +112,12 @@ const BlogCard = ({
                </Typography>
             </div>
          </div>
-         <CardContent className='w-full flex flex-col justify-start h-35% 450:h-30% px-0 sm:mb-2'>
+         <CardContent className='w-full flex flex-col justify-start h-33% py-2.5 450:h-30% px-0 sm:mb-2'>
             <Typography
-               className='text-base leading-tight 600:text-1.07rem lg:text-1.1rem'
+               className='text-base font-medium leading-tight 600:text-1.07rem lg:text-1.1rem'
                component='h3'
                variant='h5'
                letterSpacing='-.5px'
-               fontWeight='500'
                color='black'
                gutterBottom
             >
@@ -136,7 +134,7 @@ const BlogCard = ({
                   titleSplitter(
                      content.text,
                      screenWidth < 640
-                        ? "18"
+                        ? "20"
                         : screenWidth < 1024
                         ? "25"
                         : screenWidth < 1115
@@ -152,7 +150,7 @@ const BlogCard = ({
                <Link className='no-underline' to={`/${slug}`}>
                   <Button
                      variant='outlined'
-                     className='flex justify-center items-center gap-1 rounded-2xl text-black mt-0.5 py-px px-3'
+                     className='flex justify-center font-medium items-center gap-1 rounded-2xl text-black py-px px-2.5'
                   >
                      Read post
                      <NorthEastIcon className='text-base' />
@@ -160,7 +158,7 @@ const BlogCard = ({
                </Link>
                <Button
                   variant='outlined'
-                  className='flex items-center justify-center gap-1 px-3 py-px mt-0.5 text-black rounded-2xl'
+                  className='flex items-center font-medium justify-center gap-1 px-2.5 py-px text-black rounded-2xl'
                   onClick={
                      archiveChecker(state, slug)
                         ? () => dispatch(remove(post))

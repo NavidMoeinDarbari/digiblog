@@ -57,23 +57,20 @@ const AuthorCard = ({ id, slug, avatar, name, field }) => {
                }
             />
             <Link className='no-underline' to={`/authors/${slug}`}>
-               {  
-                  screenWidth < 900 ?
-                  <button
-                     title='info'
-                     className='flex justify-center bg-white items-center text-base hover:bg-sky-100 hover:text-sky-950 text-sky-950 border border-solid border-sky-700 cursor-pointer font-medium transition duration-200 mr-0.5 p-0 w-7 h-7 rounded-full'
-                  >
-                     <NorthEastIcon className='text-base' />
-                  </button>
-                  :
+                  {/* // screenWidth < 900 ?
+                  // <button
+                  //    title='info'
+                  //    className='flex justify-center bg-white items-center text-base hover:bg-sky-100 hover:text-sky-950 text-sky-950 border border-solid border-sky-700 cursor-pointer font-medium transition duration-200 mr-0.5 p-0 w-7 h-7 rounded-full'
+                  // >
+                  //    <NorthEastIcon className='text-base' />
+                  // </button>
+                  // : */}
                   <Button
                      variant='outlined'
-                     className='w-auto hover:bg-sky-100 hover:text-sky-950 text-sky-950 border-sky-700 flex justify-center items-center rounded-2xl gap-1.5 mt-0.5 py-px px-3'
+                     className='w-auto text-black flex justify-center items-center rounded-2xl gap-1.5 mt-0.5 py-px px-0'
                   >
                      info
-                     <EastRoundedIcon className='text-base flex md:hidden'/>
                   </Button>
-               }
             </Link>
          </Card>
       </Grid>

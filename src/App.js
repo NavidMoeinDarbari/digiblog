@@ -38,7 +38,7 @@ function App() {
    }, [location])
 
    return (
-      <div className="min-h-screen items-center flex flex-col">
+      <div className="min-h-screen items-center justify-between flex flex-col">
          <Provider store={store}>
             <allPostsContext.Provider value={data}>
                <screenWidthContext.Provider value={screenWidth}>

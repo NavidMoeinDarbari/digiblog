@@ -9,12 +9,13 @@ const BlogCardHeader = ({ data }) => {
    
    if (data)
       return (
-         <Stack className='w-full px-2 h-auto flex flex-row justify-between items-center'>
+         <Stack className='w-full px-0.5 h-auto flex flex-row justify-between items-center'>
             <CardHeader
                className='px-0 py-4 pb-3 450:py-4'
-               avatar={<Avatar className='shadow-sm shadow-black/80' src={data.author.avatar.url} />}
+               avatar={<Avatar className='scale-105 shadow-sm shadow-black/80' src={data.author.avatar.url} />}
                title={
                   <Typography
+                     className="tracking-tighter font-medium"
                      component='p'
                      variant='p'
                      color='black'
@@ -26,10 +27,10 @@ const BlogCardHeader = ({ data }) => {
                }
                subheader={
                   <Typography
+                     className="tracking-tighter font-normal"
                      component='p'
                      variant='p'
                      color='black'
-                     fontWeight='300'
                      fontSize='.8rem'
                   >
                      {location.pathname === "/"
@@ -39,7 +40,7 @@ const BlogCardHeader = ({ data }) => {
                }
             />
             <Typography
-               className='flex justify-center items-start gap-1'
+               className='flex justify-center items-start gap-1 font-normal   '
                component='p'
                variant='p'
                color='black'

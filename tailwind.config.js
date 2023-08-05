@@ -36,8 +36,8 @@ module.exports = {
          },
          animation: {
             sizeGrow: 'sizeGrow .3s ease',
-            bookmarkIconShow: 'bookmarkIconShow .1s ease',
-            bookmarkIconHide: 'bookmarkIconHide .1s ease'
+            bookmarkIconShow: 'bookmarkIconShow .3s ease',
+            bookmarkIconHide: 'bookmarkIconHide .3s ease'
          },
          colors: {
             searchBar: '#E9EFF4',
@@ -116,6 +116,7 @@ module.exports = {
             750: '750px',
             450: '450px',
             400: '400px',
+            360: '360px',
             350: '350px',
             320: '320px',
             300: '300px',
@@ -146,14 +147,17 @@ module.exports = {
             '75%': '75%',
             '70%': '70%',
             '60%': '60%',
+            '57%': '57%',
             '55%': '55%',
             '50%': '50%',
             '40%': '40%',
             '35%': '35%',
+            '33%': '33%',
             '30%': '30%',
             '25%': '25%',
             '20%': '20%',
-            '10%': '10%'
+            '10%': '10%',
+            '15%': '15%'
          },
          minHeight: {
             '100-header': 'calc(100vh - 56px)',
@@ -183,6 +187,7 @@ module.exports = {
             '1.1rem': '1.1rem',
             '1.07rem': '1.07rem',
             '1.05rem': '1.05rem',
+            '0.95rem': '0.95rem',
             '0.9rem': '.9rem',
             '0.8rem': '0.8rem'
          },
@@ -190,9 +195,9 @@ module.exports = {
             '5px': '5px'
          },
          boxShadow: {
-            'arrowButton': '0px 2px 6px -1.5px black',
+            'arrowButton': '0px 2px 5px -1.5px black',
             'commentGrid': '0px 3px 15px -10px black',
-            'bannerShadow': '0px 7px 13px -8px black',
+            'bannerShadow': '0px 2px 7px -3px black',
             'blogCard': '0px 5px 15px -9px black',
             'authorCard': '0 2px 3px 0'
          },
@@ -204,6 +209,9 @@ module.exports = {
          },
          scale: {
             120: '120%'
+         },
+         lineHeight: {
+            23: '23px'
          }
      },
    },
