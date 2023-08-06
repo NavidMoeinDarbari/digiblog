@@ -61,19 +61,19 @@ const SingleAuthorPage = () => {
       return (
          <Container
             maxWidth='lg'
-            className='flex min-h-screen justify-center flex-col items-center pt-2 gap-5 lg:gap-6'
+            className='flex min-h-screen justify-start flex-col items-start pt-2 gap-5 lg:gap-6'
          >
             {loading ? (
                <Loader />
             ) : (
                <>
-                  <div className='w-full shadow-bannerShadow flex flex-col h-350 md:h-450 overflow-hidden rounded-2xl relative'>
+                  <div className='w-full shadow-bannerShadow flex flex-col h-350 md:h-450 overflow-hidden rounded-xl lg:rounded-2xl relative'>
                      <img
                         src={data.author.avatar.url}
                         className='w-full h-full object-cover'
                         alt={data.author.slug}
                      />
-                     <div className='w-full h-1/3 py-8 bg-gradient-to-t from-black/70 to-transparent text-white flex flex-row justify-between items-center absolute bottom-0 left-0'>
+                     <div className='w-full h-1/3 py-8 pb-6 bg-gradient-to-t from-black/70 to-transparent text-white flex flex-row justify-between items-center absolute bottom-0 left-0'>
                         <CardHeader
                            title={
                               <Typography
@@ -165,7 +165,7 @@ const SingleAuthorPage = () => {
                         <div
                            ref={carrousel}
                            className={
-                              "w-full py-3 pt-4 px-0 h-auto grid grid-flow-col gap-y-3 grid-cols-100% auto-rows-auto auto-cols-100% grid-rows-3 sm:grid-cols-390 sm:auto-cols-390 justify-items-center sm:justify-items-start sm:grid-rows-1 `${data.author.posts.length > 3 && screenWidth < 640 ? custom-scrollbar : no-scrollbar }` overflow-y-hidden"
+                              "touch-pan-y pointer-events-auto sm:touch-auto w-full py-3 pt-4 px-0 h-auto grid grid-flow-col gap-y-3 grid-cols-100% auto-rows-auto auto-cols-100% grid-rows-3 sm:grid-cols-390 sm:auto-cols-390 justify-items-center sm:justify-items-start sm:grid-rows-1 `${data.author.posts.length > 3 && screenWidth < 640 ? custom-scrollbar : no-scrollbar }` overflow-y-hidden"
                            }
                         >
                            {data.author.posts &&

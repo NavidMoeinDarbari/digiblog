@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import { add, remove } from "../../features/bookmarks/bookmarksSlice";
@@ -8,40 +8,22 @@ import BookmarkAddRoundedIcon from "@mui/icons-material/BookmarkAddRounded";
 import BookmarkAddedRoundedIcon from "@mui/icons-material/BookmarkAddedRounded";
 import BookmarkRemoveRoundedIcon from "@mui/icons-material/BookmarkRemoveRounded";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
-import {
-   Avatar,
-   Button,
-   Card,
-   CardActions,
-   CardContent,
-   CardHeader,
-   CardMedia,
-   Stack,
-   Typography,
-} from "@mui/material";
+import {Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Stack, Typography} from "@mui/material";
 //Function
 import { titleSplitter } from "../../functions/titleSplitter";
 import archiveChecker from "../../functions/archiveChecker";
 //CONTEXT
 import { screenWidthContext } from "../../App";
 
-const BlogCard = ({
-   post,
-   author,
-   category,
-   coverImage,
-   slug,
-   title,
-   datePublished,
-   content,
-}) => {
+const BlogCard = ({post, author, category, coverImage, slug, title, datePublished, content}) => {
    const screenWidth = useContext(screenWidthContext);
    const state = useSelector((state) => state.bookmarks.bookmarkedItems);
    const dispatch = useDispatch();
+   const blogTitle = useRef(null)
 
    return (
       <Card
-         className='w-full 730:w-95% h-360 sm:h-400 rounded-xl lg:rounded-2xl overflow-hidden'
+         className='w-full sm:w-95% h-360 sm:h-400 rounded-xl lg:rounded-2xl overflow-hidden'
          elevation={0}
       >
          <div className='w-full h-57% rounded-md 450:h-60% p-0 relative overflow-hidden'>
@@ -66,11 +48,11 @@ const BlogCard = ({
                }
             >
                <CardHeader
-                  className='p-2.5 sm:p-3.5'
+                  className='p-3.5'
                   avatar={
                      author && screenWidth > 400 ? (
                         <Avatar
-                           className='border-solid border-0.5 border-sky-100 scale-100 lg:scale-105'
+                           className='scale-100 lg:scale-105'
                            src={author.avatar.url}
                         />
                      ) : (
@@ -80,7 +62,7 @@ const BlogCard = ({
                   title={
                      author && (
                         <Typography
-                           className='text-sm 450:text-0.9rem tracking-tighter font-medium pb-px'
+                           className='text-sm 450:text-0.9rem tracking-tighter font-medium pb-0.5'
                            component='p'
                            variant='p'
                            color={"white"}
@@ -120,8 +102,14 @@ const BlogCard = ({
                letterSpacing='-.5px'
                color='black'
                gutterBottom
+               ref={blogTitle}
             >
-               {title}
+               {
+                  blogTitle.current && blogTitle.current.offsetHeight > 44 ?
+                  titleSplitter(title, 10)
+                  :
+                  title
+               }
             </Typography>
             <Typography
                component='p'

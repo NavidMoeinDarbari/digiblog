@@ -141,7 +141,7 @@ const BlogsGrid = () => {
                   ))}
                {
                   filterData.length === 0 && 
-                  <Typography className='absolute top-6 730:top-20 w-full text-center text-slate-500'>
+                  <Typography className='absolute top-5 730:top-20 w-full text-center text-slate-500'>
                      No Bookmark added!
                   </Typography>
                }

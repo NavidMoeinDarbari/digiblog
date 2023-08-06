@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 
 const HomePageHeader = () => {
    return (
-      <div className='flex flex-col items-center justify-center w-full pb-1 h-150 sm:h-32 md:h-150 400:h-28'>
+      <div className='flex flex-col items-center justify-center w-full pb-1 h-150 sm:h-32 md:h-150 400:h-100'>
          <Typography
             className='text-2rem text-center mb-px tracking-tighter sm:text-2.5rem md:text-3rem lg:text-3.5rem'
             component='h1'

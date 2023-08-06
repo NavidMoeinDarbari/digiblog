@@ -11,9 +11,9 @@ import { add, remove } from "../../features/bookmarks/bookmarksSlice";
 //MUI
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import BookmarkAddRoundedIcon from '@mui/icons-material/BookmarkAddRounded';
-import BookmarkAddedRoundedIcon from '@mui/icons-material/BookmarkAddedRounded';
-import BookmarkRemoveRoundedIcon from '@mui/icons-material/BookmarkRemoveRounded';
+import BookmarkAddRoundedIcon from "@mui/icons-material/BookmarkAddRounded";
+import BookmarkAddedRoundedIcon from "@mui/icons-material/BookmarkAddedRounded";
+import BookmarkRemoveRoundedIcon from "@mui/icons-material/BookmarkRemoveRounded";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import {Box, Button, Card, CardHeader, CardMedia, Container, Divider, Stack, Avatar, Typography} from "@mui/material";
 //GRAPHQL
@@ -29,8 +29,8 @@ import archiveChecker from "../../functions/archiveChecker";
 const SingleBlogPage = () => {
    const screenWidth = useContext(screenWidthContext);
    const allBlogs = useContext(allPostsContext);
-   const state = useSelector(state => state.bookmarks.bookmarkedItems)
-   const dispatch = useDispatch()
+   const state = useSelector((state) => state.bookmarks.bookmarkedItems);
+   const dispatch = useDispatch();
    const { slug } = useParams();
    const [relatedPosts, setRelatedPosts] = useState([]);
    const [page, setPage] = useState(1);
@@ -107,7 +107,7 @@ const SingleBlogPage = () => {
                               avatar={
                                  <Avatar
                                     src={data.post.author.avatar.url}
-                                    className='m-0 md:mb-1 border-0.5 border-solid border-sky-100'
+                                    className='m-0 md:mb-1 scale-110'
                                  />
                               }
                               title={
@@ -208,24 +208,24 @@ const SingleBlogPage = () => {
                               </Box>
                            )}
                         </Stack>
-                        <Divider className='mt-1.5 h-0.5 bg-sky-100'/>
+                        <Divider className='mt-1.5 h-0.5 bg-sky-100' />
                         <div
                            ref={carrousel}
-                           className='w-full h-auto justify-items-center pt-4 overflow-x-scroll no-scrollbar grid grid-flow-col gap-y-2 grid-cols-100% auto-rows-auto auto-cols-100% grid-rows-3 500:grid-cols-50% md:grid-cols-100% 500:auto-cols-50% md:auto-cols-100% 500:grid-rows-2 md:grid-rows-3'
+                           className='touch-pan-y pointer-events-auto w-full h-auto justify-items-center pt-4 overflow-x-scroll no-scrollbar grid grid-flow-col gap-y-2 grid-cols-100% auto-rows-auto auto-cols-100% grid-rows-3 sm:grid-cols-50% md:grid-cols-100% sm:auto-cols-50% md:auto-cols-100% sm:grid-rows-2 md:grid-rows-3'
                         >
                            {relatedPosts &&
                               relatedPosts.map((post) => (
                                  <Card
                                     elevation={0}
                                     key={post.id}
-                                    className='flex w-full sm:w-95% flex-col justify-between rounded-t-xl h-265 md:h-275 overflow-hidden'
+                                    className='flex w-full sm:w-95% flex-col justify-start rounded-t-xl h-360 sm:h-265 md:h-275 overflow-hidden'
                                  >
-                                    <div className='relative w-full p-0 h-60% min-h-170 350:min-h-175 500:min-h-165 lg:h-2/3 shadow-blogCard rounded-md overflow-hidden'>
+                                    <div className='relative w-full p-0 h-57% 450:h-60% min-h-170 350:min-h-175 500:min-h-165 lg:h-2/3 rounded-md overflow-hidden'>
                                        {archiveChecker(state, post.slug) ? (
                                           <span className='absolute animate-bookmarkIconShow left-0 top-4 shadow-arrowButton flex justify-center items-center text-black bg-sky-200 p-0 w-14 h-7 rounded-r-full'>
                                              <BookmarkAddedRoundedIcon className='text-xl' />
                                           </span>
-                                          ) : (
+                                       ) : (
                                           <span className='hidden absolute animate-bookmarkIconHide shadow-arrowButton top-4 justify-center items-center text-black bg-sky-200 p-0 w-14 h-7 rounded-r-full'>
                                              <BookmarkAddedRoundedIcon className='text-xl' />
                                           </span>
@@ -238,7 +238,7 @@ const SingleBlogPage = () => {
                                           width='100%'
                                           height='100%'
                                        />
-                                       <div className='backdrop-blur px-4 rounded-b-md overflow-hidden bg-black bg-opacity-15 border-solid border-0 border-t-0.5 border-white/50 text-white flex justify-between items-center w-full h-11 absolute bottom-0 left-0'>
+                                       <div className='backdrop-blur p-3.5 rounded-b-md overflow-hidden bg-black bg-opacity-15 border-solid border-0 border-t-0.5 border-white/50 text-white flex justify-between items-center w-full h-11 absolute bottom-0 left-0'>
                                           <Typography
                                              component='p'
                                              variant='p'
@@ -255,43 +255,72 @@ const SingleBlogPage = () => {
                                           </Typography>
                                        </div>
                                     </div>
-                                    <div className='flex flex-col justify-between w-full p-0 h-40% lg:h-1/3'>
+                                    <div className='flex flex-col justify-start w-full p-0 h-43% lg:h-1/3'>
                                        <Typography
-                                          component='h5'
+                                          className='mt-2.5 text-base 600:text-1.07rem sm:text-0.95rem font-medium leading-tight sm:leading-5'
+                                          component='h3'
                                           variant='h5'
                                           color='black'
-                                          fontSize='.95rem'
-                                          lineHeight='19px'
-                                          fontWeight={500}
-                                          marginTop={1.5}
+                                          letterSpacing='-.5px'
+                                          gutterBottom
                                        >
-                                          {titleSplitter(post.title, 11)}
+                                          {screenWidth > 640 ? titleSplitter(post.title, 10) : post.title}
                                        </Typography>
-                                       <Stack className='w-full flex flex-row gap-1 justify-start items-center'>
+                                       <Typography
+                                          className='flex sm:hidden'
+                                          component='p'
+                                          variant='p'
+                                          fontSize='.85rem'
+                                          fontWeight='400'
+                                          lineHeight='17px'
+                                       >
+                                          {screenWidth >= 400 &&
+                                             titleSplitter(
+                                                post.content.text,
+                                                screenWidth < 640
+                                                   ? "20"
+                                                   : screenWidth < 1024
+                                                   ? "25"
+                                                   : screenWidth < 1115
+                                                   ? "13"
+                                                   : "25"
+                                             )}
+                                          {screenWidth < 400 &&
+                                             titleSplitter(post.content.text, screenWidth > 350 ? "12" : "8")}
+                                       </Typography>
+                                       <Stack className='w-full flex flex-row gap-1 justify-start items-center mb-1 sm:mb-0 mx-0 mt-auto'>
                                           <Link
                                              className='no-underline'
                                              to={`/${post.slug}`}
                                           >
                                              <Button
                                                 variant='outlined'
-                                                className='flex items-center bg-sky-100 justify-center gap-1 px-2.5 py-0 mb-1 mt-0.5 text-black rounded-2xl'
+                                                className='flex items-center justify-center gap-1 px-2.5 py-0 mb-1 mt-0.5 text-black rounded-2xl'
                                              >
                                                 Read Post
-                                                <NorthEastIcon className='text-base' />
+                                                <NorthEastIcon className='text-base md:hidden 900:flex' />
                                              </Button>
                                           </Link>
                                           <Button
                                              variant='outlined'
                                              className='flex items-center justify-center gap-1 px-2.5 py-0 mb-1 mt-0.5 text-black rounded-2xl'
-                                             onClick={archiveChecker(state,post.slug) ? () => dispatch(remove(post)) : () => dispatch(add(post))}
+                                             onClick={
+                                                archiveChecker(state, post.slug)
+                                                   ? () =>
+                                                        dispatch(remove(post))
+                                                   : () => dispatch(add(post))
+                                             }
                                           >
                                              {archiveChecker(state, post.slug)
                                                 ? "Unbookmark"
                                                 : "Bookmark"}
-                                             {archiveChecker(state, post.slug) ? (
-                                                <BookmarkRemoveRoundedIcon className='text-lg' />
+                                             {archiveChecker(
+                                                state,
+                                                post.slug
+                                             ) ? (
+                                                <BookmarkRemoveRoundedIcon className='text-lg md:hidden 900:flex' />
                                              ) : (
-                                                <BookmarkAddRoundedIcon className='text-lg' />
+                                                <BookmarkAddRoundedIcon className='text-lg md:hidden 900:flex' />
                                              )}
                                           </Button>
                                        </Stack>

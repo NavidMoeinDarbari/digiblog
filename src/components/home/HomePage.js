@@ -25,7 +25,7 @@ const HomePage = () => {
 
    if (loading) {
       return (
-         <div className='flex items-center justify-center w-full h-100-header'>
+         <div className='flex items-center justify-start w-full h-100-header'>
             <Loader size={80} marginTop='mt-0' />
          </div>
       );
@@ -53,13 +53,13 @@ const HomePage = () => {
       return (
          <Container maxWidth='lg' className='w-full flex flex-col items-center min-h-100-header'>
             <HomePageHeader />
-            <div className='h-350 md:h-450 group shadow-bannerShadow relative flex flex-col items-center justify-center w-full overflow-hidden rounded-xl lg:rounded-2xl'>
+            <div className='h-360 md:h-450 group shadow-bannerShadow relative flex flex-col items-center justify-center w-full overflow-hidden rounded-xl lg:rounded-2xl'>
                <img
                   src={data.posts[data.posts.length - 1].coverImage.url}
                   className='group-hover:scale-105 transition duration-1000 object-cover w-full h-full'
                   alt={data.posts[data.posts.length - 1].slug}
                />
-               <div className='absolute bottom-0 left-0 flex flex-col items-start justify-start w-full h-auto px-3 py-3.5 450:py-5 md:py-6 text-white bg-gradient-to-t from-black/60 from-0 to-transparent bg-opacity-20'>
+               <div className='absolute bottom-0 left-0 flex flex-col items-start justify-start w-full h-auto px-3 py-3.5 pt-5 450:py-5 md:py-6 text-white bg-gradient-to-t from-black/60 from-0 to-transparent bg-opacity-20'>
                   <CardHeader
                      className='hidden 600:flex'
                      avatar={

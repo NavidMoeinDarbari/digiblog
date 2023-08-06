@@ -89,7 +89,7 @@ const CommentForm = ({ slug }) => {
             <Button
                variant='outlined'
                disabled={loading ? true : false}
-               className='rounded-full px-4 py-0.5 gap-3 bg-sky-100 text-black'
+               className='rounded-full px-4 py-0.5 gap-3 text-black'
                onClick={sendCommentHandler}
             >
                {loading ? "Sending..." : "Send"}
