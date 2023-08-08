@@ -2,18 +2,15 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 //MUI
 import {Typography, Avatar, CardHeader, Grid,Card, Button} from "@mui/material";
-import EastRoundedIcon from "@mui/icons-material/EastRounded";
-import NorthEastIcon from "@mui/icons-material/NorthEast";
 //CONTEXT
 import { screenWidthContext } from "../../App";
 
 const AuthorCard = ({ id, slug, avatar, name, field }) => {
-   const screenWidth = useContext(screenWidthContext);
 
    return (
       <Grid item className='w-full 550:w-1/2 730:w-full'>
          <Card
-            className='px-2 730:px-0'
+            className='px-2 730:px-0 730:pr-0.5'
             elevation={0}
             sx={{
                width: "100%",
@@ -57,20 +54,11 @@ const AuthorCard = ({ id, slug, avatar, name, field }) => {
                }
             />
             <Link className='no-underline' to={`/authors/${slug}`}>
-                  {/* // screenWidth < 900 ?
-                  // <button
-                  //    title='info'
-                  //    className='flex justify-center bg-white items-center text-base hover:bg-sky-100 hover:text-sky-950 text-sky-950 border border-solid border-sky-700 cursor-pointer font-medium transition duration-200 mr-0.5 p-0 w-7 h-7 rounded-full'
-                  // >
-                  //    <NorthEastIcon className='text-base' />
-                  // </button>
-                  // : */}
-                  <Button
-                     variant='outlined'
-                     className='w-auto text-black flex justify-center items-center rounded-2xl gap-1.5 mt-0.5 py-px px-0'
+                  <button
+                     className='w-14 h-8 text-black cursor-pointer font-medium text-sm border-mainColor border-solid border-1 hover:bg-slate-100 transition duration-200 bg-white flex justify-center items-center rounded-2xl gap-1.5 mt-0.5 py-px px-0'
                   >
                      info
-                  </Button>
+                  </button>
             </Link>
          </Card>
       </Grid>

@@ -74,6 +74,7 @@ module.exports = {
             '-10%': '-10%'
          },
          borderWidth: {
+            1: '1px',
             '0.5': '0.5px'
          },
          width: {
@@ -116,6 +117,7 @@ module.exports = {
             750: '750px',
             450: '450px',
             400: '400px',
+            370: '370px',
             360: '360px',
             350: '350px',
             320: '320px',
@@ -182,6 +184,7 @@ module.exports = {
             '2rem': '2rem',
             '1.8rem': '1.8rem',
             '1.7rem': '1.7rem',
+            '1.6rem': '1.6rem',
             '1.5rem': '1.5rem',
             '1.4rem': '1.4rem',
             '1.2rem': '1.2rem',

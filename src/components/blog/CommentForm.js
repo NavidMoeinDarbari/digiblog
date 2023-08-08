@@ -87,9 +87,9 @@ const CommentForm = ({ slug }) => {
          </Grid>
          <Grid item xs={12}>
             <Button
-               variant='outlined'
+               variant='contained'
                disabled={loading ? true : false}
-               className='rounded-full px-4 py-0.5 gap-3 text-black'
+               className='rounded-full px-4 py-1 gap-3 text-white bg-mainColor shadow-md shadow-black/25'
                onClick={sendCommentHandler}
             >
                {loading ? "Sending..." : "Send"}

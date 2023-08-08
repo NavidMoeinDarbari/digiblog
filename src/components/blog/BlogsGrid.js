@@ -45,7 +45,8 @@ const BlogsGrid = () => {
             )
          );
       setPage(1);
-   }, [category]);
+      carrousel.current.scrollTo(0,0)
+   }, [category, screenWidth]);
 
    useEffect(() => {
       setPage(1)

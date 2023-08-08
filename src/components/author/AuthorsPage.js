@@ -61,14 +61,13 @@ const AuthorsPage = () => {
    if (data)
       return (
          <Container maxWidth='lg'>
-            <div className='flex flex-col items-center justify-center w-full sm:h-32 md:h-150 h-110'>
+            <div className='flex flex-col items-center justify-center w-full h-auto py-4 md:py-6'>
                <Typography
                   className='text-2rem tracking-tighter sm:text-2.5rem md:text-3rem lg:text-3.5rem'
                   component='h1'
                   variant='h2'
                   fontWeight={500}
                   color='black'
-                  mb={1}
                >
                   Our team Authors
                </Typography>
@@ -88,10 +87,10 @@ const AuthorsPage = () => {
                <Stack
                   width={"100%"}
                   display={"flex"}
-                  gap={3}
+                  gap={2}
                   justifyContent={"center"}
                   alignItems={"center"}
-                  mb={searchedItems.length > 0 ? 2 : 3}
+                  mb={searchedItems.length > 0 ? 1.5 : 2.5}
                >
                   <OutlinedInput
                      onChange={(e) => setSearchKey(e.target.value)}
@@ -117,22 +116,22 @@ const AuthorsPage = () => {
                            container
                            columnGap={2}
                            justifyContent={"center"}
-                           className='w-full h-auto gap-y-3 500:gap-y-4 transition-all duration-500'
+                           className='w-full h-auto transition-all duration-500'
                         >
                            {searchedItems.map((item) => (
-                              <Grid item xs={"auto"}>
+                              <Grid item xs={12} sm={'auto'}>
                                  <Card
-                                    elevation={3}
-                                    className='flex flex-row items-center relative justify-between w-full px-3 pr-4 bg-white rounded-2xl'
+                                    className='flex flex-row items-center relative justify-between w-full py-0 px-3 600:px-1 gap-3'
+                                    elevation={0}
                                  >
                                     <CardHeader
                                        sx={{
                                           paddingLeft: "5px",
-                                          paddingY: "10px",
+                                          paddingY: "9px",
                                        }}
                                        avatar={
                                           <Avatar
-                                             sx={{ scale: "110%" }}
+                                             sx={{ scale: "105%" }}
                                              src={item.avatar.url}
                                              alt={item.avatar.url}
                                           />
@@ -165,9 +164,11 @@ const AuthorsPage = () => {
                                        className='no-underline'
                                        to={`/authors/${item.slug}`}
                                     >
-                                       <Box className='flex items-center justify-center p-0 transition duration-150 border border-solid rounded-full w-7 h-7 hover:bg-sky-100 hover:text-sky-950 border-sky-600'>
-                                          <NorthEastIcon className='text-base' />
-                                       </Box>
+                                       <button
+                                          className='w-14 h-8 text-black font-medium bg-white cursor-pointer text-sm border-mainColor border-solid border-1 hover:bg-slate-100 transition duration-200 flex justify-center items-center rounded-2xl gap-1.5 mt-0.5 py-px px-0'
+                                       >
+                                       info
+                                       </button>
                                     </Link>
                                  </Card>
                               </Grid>
@@ -189,13 +190,13 @@ const AuthorsPage = () => {
                         sm={4}
                         md={3}
                      >
-                        <Card className='relative flex items-end w-full h-full overflow-hidden group rounded-2xl'>
+                        <Card className='shadow-md shadow-black/25 relative flex items-end w-full h-full overflow-hidden group rounded-xl'>
                            <img
                               src={author.avatar.url}
                               className='w-full lg:brightness-95 lg:group-hover:brightness-100 lg:group-hover:w-110% h-full lg:group-hover:h-110% absolute transition-all duration-300 object-cover bottom-0 flex justify-center'
                               alt={author.name}
                            />
-                           <Stack className='z-10 flex flex-row items-end justify-between w-full h-auto sm:p-4 sm:pr-5 py-2.5 px-3 bg-gradient-to-t from-black/70 to-transparent'>
+                           <Stack className='z-10 flex flex-row items-end justify-between w-full h-auto sm:p-4 sm:pr-4 py-2.5 px-3 bg-gradient-to-t from-black/70 to-transparent'>
                               <Typography
                                  component='h3'
                                  variant='h5'
@@ -217,14 +218,14 @@ const AuthorsPage = () => {
                                  {screenWidth <= 768 ? (
                                     <button
                                        title='info'
-                                       className='flex border-none justify-center items-center shadow-arrowButton text-base absolute cursor-pointer top-2 left-2 font-medium text-black bg-sky-100 hover:bg-sky-200 transition duration-200 p-0 w-7 h-7 rounded-full'
+                                       className='flex border-none justify-center items-center shadow-md shadow-black/30 text-base absolute cursor-pointer top-2 left-2 font-medium text-white bg-mainColor transition duration-200 p-0 w-7 h-7 rounded-full'
                                     >
                                        <NorthEastIcon className='text-base' />
                                     </button>
                                  ) : (
                                     <Button
                                        variant='contained'
-                                       className='group-hover:translate-y-0 transition duration-300 translate-y-11 w-auto justify-center gap-1 text-black bg-sky-100 px-3 py-0.5 items-center rounded-2xl'
+                                       className='group-hover:translate-y-0 transition duration-300 translate-y-14 w-12 h-8 shadow-md shadow-black/30 justify-center gap-0.5 text-white font-medium bg-mainColor px-3 py-0.5 items-center rounded-2xl'
                                     >
                                        info
                                        <NorthEastIcon className='text-base' />

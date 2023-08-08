@@ -4,9 +4,18 @@ import { Typography } from "@mui/material";
 
 const HomePageHeader = () => {
    return (
-      <div className='flex flex-col items-center justify-center w-full pb-1 h-150 sm:h-32 md:h-150 400:h-100'>
+      <div className='flex flex-col items-center justify-center w-full py-4 pb-5 md:py-6 md:pb-7'>
          <Typography
-            className='text-2rem text-center mb-px tracking-tighter sm:text-2.5rem md:text-3rem lg:text-3.5rem'
+            component='p'
+            variant='p'
+            color='black'
+            fontWeight={500}
+            className='mb-0.5 text-center text-sm 500:text-base 500:w-full'
+         >
+            The blog
+         </Typography>
+         <Typography
+            className='text-2rem text-center mb-1 tracking-tighter sm:text-2.5rem md:text-3rem lg:text-3.5rem'
             component='h1'
             variant='h2'
             fontWeight={500}

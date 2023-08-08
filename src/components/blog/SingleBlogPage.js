@@ -9,8 +9,8 @@ import BlogCardHeader from "../shared/BlogCardHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../../features/bookmarks/bookmarksSlice";
 //MUI
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import BookmarkAddRoundedIcon from "@mui/icons-material/BookmarkAddRounded";
 import BookmarkAddedRoundedIcon from "@mui/icons-material/BookmarkAddedRounded";
 import BookmarkRemoveRoundedIcon from "@mui/icons-material/BookmarkRemoveRounded";
@@ -90,7 +90,7 @@ const SingleBlogPage = () => {
             >
                Date: {data.post.datePublished}
             </Typography>
-            <div className='h-350 md:h-450 relative shadow-bannerShadow flex flex-col items-center justify-center w-full overflow-hidden rounded-xl lg:rounded-2xl'>
+            <div className='h-350 md:h-450 relative shadow-lg shadow-black/30 flex flex-col items-center justify-center w-full overflow-hidden rounded-xl lg:rounded-2xl'>
                {loading ? (
                   <Loader />
                ) : (
@@ -134,8 +134,8 @@ const SingleBlogPage = () => {
                            />
                         </div>
                         <Typography
-                           className='text-xl leading-6 600:leading-7 600:text-1.4rem sm:text-1.5rem md:text-1.7rem md:leading-9 px-1.5 sm:px-3 md:px-4 lg:w-4/5'
-                           letterSpacing={"-.8px"}
+                           className='text-xl leading-6 600:leading-7 600:text-1.4rem sm:text-1.5rem md:text-1.6rem md:leading-8 px-1.5 sm:px-3 md:px-4 lg:w-3/5'
+                           letterSpacing={"-.9px"}
                            component='h2'
                            variant='h2'
                            fontWeight='400'
@@ -187,14 +187,14 @@ const SingleBlogPage = () => {
                               <Box
                                  display={"flex"}
                                  alignItems={"center"}
-                                 gap={0.5}
+                                 gap={0.6}
                               >
-                                 <ArrowBackIosNewIcon
+                                 <NavigateBeforeIcon
                                     className='arrowButton'
                                     style={{ opacity: page > 1 ? "1" : "0.6" }}
                                     onClick={() => scrollHandler("left")}
                                  />
-                                 <ArrowForwardIosIcon
+                                 <NavigateNextIcon
                                     className='arrowButton'
                                     style={{
                                        opacity:
@@ -238,7 +238,7 @@ const SingleBlogPage = () => {
                                           width='100%'
                                           height='100%'
                                        />
-                                       <div className='backdrop-blur p-3.5 rounded-b-md overflow-hidden bg-black bg-opacity-15 border-solid border-0 border-t-0.5 border-white/50 text-white flex justify-between items-center w-full h-11 absolute bottom-0 left-0'>
+                                       <div className='backdrop-blur p-3 sm:p-3.5 rounded-b-md overflow-hidden bg-black bg-opacity-15 border-solid border-0 border-t-0.5 border-white/50 text-white flex justify-between items-center w-full h-11 absolute bottom-0 left-0'>
                                           <Typography
                                              component='p'
                                              variant='p'

@@ -23,7 +23,7 @@ const BlogCard = ({post, author, category, coverImage, slug, title, datePublishe
 
    return (
       <Card
-         className='w-full sm:w-95% h-360 sm:h-400 rounded-xl lg:rounded-2xl overflow-hidden'
+         className='w-full sm:w-95% h-360 sm:h-400 rounded-xl overflow-hidden'
          elevation={0}
       >
          <div className='w-full h-57% rounded-md 450:h-60% p-0 relative overflow-hidden'>
@@ -48,7 +48,7 @@ const BlogCard = ({post, author, category, coverImage, slug, title, datePublishe
                }
             >
                <CardHeader
-                  className='p-3.5'
+                  className='p-3 sm:p-3.5'
                   avatar={
                      author && screenWidth > 400 ? (
                         <Avatar

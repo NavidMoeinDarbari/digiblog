@@ -53,18 +53,18 @@ const HomePage = () => {
       return (
          <Container maxWidth='lg' className='w-full flex flex-col items-center min-h-100-header'>
             <HomePageHeader />
-            <div className='h-360 md:h-450 group shadow-bannerShadow relative flex flex-col items-center justify-center w-full overflow-hidden rounded-xl lg:rounded-2xl'>
+            <div className='h-400 md:h-450 group shadow-lg shadow-black/30 relative flex flex-col items-center justify-center w-full overflow-hidden rounded-xl'>
                <img
                   src={data.posts[data.posts.length - 1].coverImage.url}
                   className='group-hover:scale-105 transition duration-1000 object-cover w-full h-full'
                   alt={data.posts[data.posts.length - 1].slug}
                />
-               <div className='absolute bottom-0 left-0 flex flex-col items-start justify-start w-full h-auto px-3 py-3.5 pt-5 450:py-5 md:py-6 text-white bg-gradient-to-t from-black/60 from-0 to-transparent bg-opacity-20'>
+               <div className='absolute bottom-0 left-0 flex flex-col items-start justify-start w-full h-auto px-3 py-3.5 pt-5 450:py-4 md:py-5 text-white bg-gradient-to-t from-black/70 from-0 to-transparent'>
                   <CardHeader
-                     className='hidden 600:flex'
+                     className='hidden 600:flex px-1.5 sm:px-2.5 md:px-3.5'
                      avatar={
                         <Avatar
-                           className='m-0 md:mb-1 scale-100 lg:scale-110'
+                           className='m-0 lg:mb-0.5 scale-100 lg:scale-105'
                            src={data.posts[data.posts.length - 1].author.avatar.url}
                         />
                      }
@@ -93,26 +93,24 @@ const HomePage = () => {
                      }
                   />
                   <Typography
-                     className='text-xl leading-6 600:leading-7 600:text-1.4rem sm:text-1.5rem md:text-1.7rem md:leading-9 px-1.5 sm:px-3 md:px-4 lg:w-4/5'
-                     letterSpacing={"-.8px"}
+                     className='text-xl mb-2 600:mb-3 leading-6 600:leading-7 600:text-1.4rem sm:text-1.5rem md:text-1.6rem md:leading-8 px-1.5 sm:px-2.5 md:px-3.5 lg:w-3/5'
+                     letterSpacing={"-.9px"}
                      component='h2'
                      variant='h2'
                      fontWeight='400'
                   >
                      {data.posts[data.posts.length - 1].title}
                   </Typography>
-               </div>
-               <Box className='absolute top-3 right-3 lg:top-6 lg:right-6 transition duration-300 lg:translate-x-150% lg:group-hover:translate-x-0 lg:group-hover:right-5 w-auto'>
                   <Link className='no-underline' to={`/${data.posts[data.posts.length - 1].slug}`}>
-                     <Button
-                        variant='contained'
-                        className=' justify-center shadow-arrowButton gap-1 text-black bg-sky-100 px-2.5 py-px sm:px-4 sm:py-1 items-center rounded-2xl'
+                     <Button 
+                        variant='outlined'
+                        className='flex justify-center font-medium items-center gap-1 rounded-2xl text-white border-white/80 py-px px-3 lg:px-4 mx-1.5 sm:mx-3 md:mx-3.5'
                      >
-                        Read post
+                        Read Post
                         <NorthEastIcon className='text-base' />
                      </Button>
                   </Link>
-               </Box>
+               </div>
             </div>
             {screenWidth < 600 && <BlogCardHeader data={data.posts[data.posts.length-1]}/>}
             <Typography

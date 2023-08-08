@@ -3,8 +3,8 @@ import React, { useContext, useRef, useState } from "react";
 import BlogCard from "../shared/BlogCard";
 import Loader from "../shared/Loader";
 //MUI
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import {
    Box,
    CardHeader,
@@ -67,7 +67,7 @@ const SingleAuthorPage = () => {
                <Loader />
             ) : (
                <>
-                  <div className='w-full shadow-bannerShadow flex flex-col h-350 md:h-450 overflow-hidden rounded-xl lg:rounded-2xl relative'>
+                  <div className='w-full shadow-lg shadow-black/30 flex flex-col h-350 md:h-450 overflow-hidden rounded-xl lg:rounded-2xl relative'>
                      <img
                         src={data.author.avatar.url}
                         className='w-full h-full object-cover'
@@ -138,17 +138,17 @@ const SingleAuthorPage = () => {
                                  <Box
                                     display={"flex"}
                                     alignItems={"center"}
-                                    gap={0.5}
+                                    gap={0.6}
                                     className='absolute -bottom-8 w-full sm:w-auto justify-center sm:static'
                                  >
-                                    <ArrowBackIosNewIcon
+                                    <NavigateBeforeIcon
                                        className='arrowButton'
                                        style={{
                                           opacity: leftEnd ? "0.6" : "1",
                                        }}
                                        onClick={() => scrollHandler("left")}
                                     />
-                                    <ArrowForwardIosIcon
+                                    <NavigateNextIcon
                                        className='arrowButton'
                                        style={{
                                           opacity: RightEnd ? "0.6" : "1",

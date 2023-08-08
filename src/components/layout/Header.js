@@ -67,7 +67,7 @@ const Header = () => {
                <div className='flex flex-row justify-center items-center gap-1.5 800:gap-2 relative'>
                   {screenWidth >= 850 && (
                      <Button
-                        className='px-5 py-5px text-base rounded-full font-medium text-black hidden sm:block'
+                        className='h-9 px-5 py-5px text-base rounded-xl font-medium text-black hidden sm:block'
                         variant='text'
                      >
                         Sign up
@@ -76,7 +76,7 @@ const Header = () => {
                   {screenWidth < 800 && (
                      <>
                         <button
-                           className='w-8 h-8 border-none bg-mainColor flex justify-center items-center rounded-full shadow-arrowButton cursor-pointer'
+                           className='w-8 h-8 800:h-9 border-none bg-mainColor flex justify-center items-center rounded-full shadow-arrowButton cursor-pointer'
                            onClick={handleMenu}
                         >
                            <KeyboardArrowDownRoundedIcon
@@ -86,7 +86,7 @@ const Header = () => {
                            />
                         </button>
                         {menuOpen && (
-                           <List className='w-max px-3 py-2 animate-sizeGrow shadow-arrowButton overflow-hidden flex-nowrap flex flex-col  gap-1.5 bg-mainColor text-white rounded-xl absolute top-10 right-0'>
+                           <List className='w-max px-3 py-2 animate-sizeGrow shadow-md shadow-black/25 overflow-hidden flex-nowrap flex flex-col  gap-1.5 bg-mainColor text-white rounded-xl absolute top-10 right-0'>
                               <Link to='/' className='no-underline text-white'>
                                  <ListItem
                                     className='menuItem'
@@ -129,9 +129,9 @@ const Header = () => {
                         )}
                      </>
                   )}
-                  <button className='rounded-full w-8 h-8 cursor-pointer 800:px-6 p-1 800:w-auto text-white shadow-arrowButton border-none 800:py-5px flex justify-center items-center text-base font-medium bg-slate-800'>
-                     {screenWidth < 800 ? "" : "Log in"}
+                  <button className='rounded-xl 800:rounded-xl h-8 gap-0.5 800:h-9 cursor-pointer 800:px-6 px-3 pl-2.5 800:w-auto text-white shadow-md shadow-black/25 border-none 800:py-5px flex justify-center items-center text-0.95rem 800:text-base 800:font-medium bg-slate-800'>
                      <PersonRoundedIcon className='text-white text-xl 800:hidden' />
+                     {screenWidth < 800 ? "Sign in" : "Log in"}
                   </button>
                </div>
             </Toolbar>

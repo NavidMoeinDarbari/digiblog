@@ -34,9 +34,9 @@ const BlogComments = ({ slug }) => {
                         item
                         xs={12}
                         key={comment.id}
-                        className='bg-sky-100/60 p-3 lg:p-4 rounded-2xl'
+                        className='bg-sky-100/50 p-2.5 lg:p-3.5 rounded-xl shadow shadow-black/25'
                      >
-                        <Stack className='flex flex-row justify-between items-center mb-2 lg:mb-3'>
+                        <Stack className='flex flex-row justify-between items-center mb-2.5 lg:mb-3.5'>
                            <Box className='flex flex-row items-center gap-2'>
                               <Avatar className='bg-mainColor font-light text-base text-slate-200 w-8 h-8'>
                                  {comment.name[0]}
