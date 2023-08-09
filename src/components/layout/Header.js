@@ -129,8 +129,7 @@ const Header = () => {
                         )}
                      </>
                   )}
-                  <button className='rounded-xl 800:rounded-xl h-8 gap-0.5 800:h-9 cursor-pointer 800:px-6 px-3 pl-2.5 800:w-auto text-white shadow-md shadow-black/25 border-none 800:py-5px flex justify-center items-center text-0.95rem 800:text-base 800:font-medium bg-slate-800'>
-                     <PersonRoundedIcon className='text-white text-xl 800:hidden' />
+                  <button className='rounded-xl 800:rounded-xl h-8 800:h-9 cursor-pointer 800:px-6 px-4 800:w-auto text-white shadow-md shadow-black/25 border-none 800:py-5px flex justify-center items-center text-0.95rem 800:text-base 800:font-medium bg-slate-800'>
                      {screenWidth < 800 ? "Sign in" : "Log in"}
                   </button>
                </div>

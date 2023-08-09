@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "../shared/Loader";
 import errorImage from "../../images/illustrations/404 error with a landscape-amico.svg";
 //MUI
@@ -16,6 +16,8 @@ const AuthorsPage = () => {
    const [searchedItems, setSearchedItems] = useState([]);
    const { data, loading, error } = useQuery(GET_AUTHORS_INFO);
    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+   const navigate = useNavigate()
 
    const handleScreenWidth = () => {
       setScreenWidth(window.innerWidth);
@@ -190,10 +192,13 @@ const AuthorsPage = () => {
                         sm={4}
                         md={3}
                      >
-                        <Card className='shadow-md shadow-black/25 relative flex items-end w-full h-full overflow-hidden group rounded-xl'>
+                        <Card 
+                           className='shadow-md shadow-black/30 relative flex items-end w-full h-full overflow-hidden group rounded-xl cursor-pointer md:cursor-default'
+                           onClick={() => screenWidth <= 768 && navigate(`/authors/${author.slug}`)}
+                        >
                            <img
                               src={author.avatar.url}
-                              className='w-full lg:brightness-95 lg:group-hover:brightness-100 lg:group-hover:w-110% h-full lg:group-hover:h-110% absolute transition-all duration-300 object-cover bottom-0 flex justify-center'
+                              className='w-full lg:brightness-95 lg:group-hover:brightness-100 group-hover:w-110% h-full group-hover:h-110% absolute transition-all duration-300 object-cover bottom-0 flex justify-center'
                               alt={author.name}
                            />
                            <Stack className='z-10 flex flex-row items-end justify-between w-full h-auto sm:p-4 sm:pr-4 py-2.5 px-3 bg-gradient-to-t from-black/70 to-transparent'>
@@ -214,23 +219,14 @@ const AuthorsPage = () => {
                                     {author.field}
                                  </Typography>
                               </Typography>
-                              <Link to={`/authors/${author.slug}`}>
-                                 {screenWidth <= 768 ? (
-                                    <button
-                                       title='info'
-                                       className='flex border-none justify-center items-center shadow-md shadow-black/30 text-base absolute cursor-pointer top-2 left-2 font-medium text-white bg-mainColor transition duration-200 p-0 w-7 h-7 rounded-full'
-                                    >
-                                       <NorthEastIcon className='text-base' />
-                                    </button>
-                                 ) : (
-                                    <Button
-                                       variant='contained'
-                                       className='group-hover:translate-y-0 transition duration-300 translate-y-14 w-12 h-8 shadow-md shadow-black/30 justify-center gap-0.5 text-white font-medium bg-mainColor px-3 py-0.5 items-center rounded-2xl'
-                                    >
-                                       info
-                                       <NorthEastIcon className='text-base' />
-                                    </Button>
-                                 )}
+                              <Link to={`/authors/${author.slug}`} className='hidden md:flex'>
+                                 <Button
+                                    variant='contained'
+                                    className='group-hover:translate-y-0 transition duration-300 translate-y-14 w-12 h-8 shadow-md shadow-black/30 justify-center gap-0.5 text-white font-medium bg-mainColor px-3 py-0.5 items-center rounded-2xl'
+                                 >
+                                    info
+                                    <NorthEastIcon className='text-base' />
+                                 </Button>
                               </Link>
                            </Stack>
                         </Card>

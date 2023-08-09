@@ -10,9 +10,9 @@ const HomePageHeader = () => {
             variant='p'
             color='black'
             fontWeight={500}
-            className='mb-0.5 text-center text-sm 500:text-base 500:w-full'
+            className='mb-px text-center text-base 500:w-full'
          >
-            The blog
+            The Blog
          </Typography>
          <Typography
             className='text-2rem text-center mb-1 tracking-tighter sm:text-2.5rem md:text-3rem lg:text-3.5rem'

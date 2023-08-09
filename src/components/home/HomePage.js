@@ -53,13 +53,13 @@ const HomePage = () => {
       return (
          <Container maxWidth='lg' className='w-full flex flex-col items-center min-h-100-header'>
             <HomePageHeader />
-            <div className='h-400 md:h-450 group shadow-lg shadow-black/30 relative flex flex-col items-center justify-center w-full overflow-hidden rounded-xl'>
+            <div className='h-350 md:h-450 group shadow-lg shadow-black/30 relative flex flex-col items-center justify-center w-full overflow-hidden rounded-xl'>
                <img
                   src={data.posts[data.posts.length - 1].coverImage.url}
                   className='group-hover:scale-105 transition duration-1000 object-cover w-full h-full'
                   alt={data.posts[data.posts.length - 1].slug}
                />
-               <div className='absolute bottom-0 left-0 flex flex-col items-start justify-start w-full h-auto px-3 py-3.5 pt-5 450:py-4 md:py-5 text-white bg-gradient-to-t from-black/70 from-0 to-transparent'>
+               <div className='absolute bottom-0 left-0 flex flex-col items-start justify-start w-full h-auto px-3 py-3.5 pt-5 450:py-4 md:py-5 text-white bg-gradient-to-t from-black/80 from-0 to-transparent'>
                   <CardHeader
                      className='hidden 600:flex px-1.5 sm:px-2.5 md:px-3.5'
                      avatar={
@@ -93,7 +93,7 @@ const HomePage = () => {
                      }
                   />
                   <Typography
-                     className='text-xl mb-2 600:mb-3 leading-6 600:leading-7 600:text-1.4rem sm:text-1.5rem md:text-1.6rem md:leading-8 px-1.5 sm:px-2.5 md:px-3.5 lg:w-3/5'
+                     className='text-xl mb-0 600:mb-3 leading-6 600:leading-7 600:text-1.4rem sm:text-1.5rem md:text-1.6rem md:leading-8 px-1.5 sm:px-2.5 md:px-3.5 lg:w-3/5'
                      letterSpacing={"-.9px"}
                      component='h2'
                      variant='h2'
@@ -101,10 +101,10 @@ const HomePage = () => {
                   >
                      {data.posts[data.posts.length - 1].title}
                   </Typography>
-                  <Link className='no-underline' to={`/${data.posts[data.posts.length - 1].slug}`}>
+                  <Link className='no-underline hidden 600:flex' to={`/${data.posts[data.posts.length - 1].slug}`}>
                      <Button 
                         variant='outlined'
-                        className='flex justify-center font-medium items-center gap-1 rounded-2xl text-white border-white/80 py-px px-3 lg:px-4 mx-1.5 sm:mx-3 md:mx-3.5'
+                        className=' justify-center font-medium items-center gap-1 rounded-2xl text-white border-white/80 py-px px-3 lg:px-4 mx-1.5 sm:mx-3 md:mx-3.5'
                      >
                         Read Post
                         <NorthEastIcon className='text-base' />
